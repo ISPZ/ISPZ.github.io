@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next%20(2).png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next%20(2).png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next%20(2).png">
+  <link rel="mask-icon" href="/images/logo%20(2).svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="预备工作安装git从git官网下载符合自己系统的版本本文不再详细阐述Git的安装方法，可以按照菜鸟教程或者廖雪峰的教程进行安装。安装node.js从官网下载选择下载长期支持版本下载安装完成后会安装两个工具，分别是node和npm。按下win+R输入powershell，验证下载是否成功12node -vnpm -v">
+<meta name="keywords" content="Hexo,Github">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo安装及Github部署">
+<meta property="og:url" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;index.html">
+<meta property="og:site_name" content="A.Z&#39;s Blog">
+<meta property="og:description" content="预备工作安装git从git官网下载符合自己系统的版本本文不再详细阐述Git的安装方法，可以按照菜鸟教程或者廖雪峰的教程进行安装。安装node.js从官网下载选择下载长期支持版本下载安装完成后会安装两个工具，分别是node和npm。按下win+R输入powershell，验证下载是否成功12node -vnpm -v">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;nodejs.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;00_instal_cnpm.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;01_install_hexo.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;02_validation_hexo.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;07_set_first_artical.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;08_generate_artical.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;10_install_git_plugin.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;10_git_set_position.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;11_edit_repo.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;12_remote_deploy_hexo.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;13_login.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;14_complete.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;15_download_yilia_theme.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;16_theme_location.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;17_set_theme.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;04_hexo_init_error.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;05_input_npm_install_still_error.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;06_input_cnpm_install_solve_the_problem.png">
+<meta property="og:updated_time" content="2019-11-20T09:42:08.852Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;nodejs.png">
+
+<link rel="canonical" href="http://ispz.github.io/2019/11/18/Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Hexo安装及Github部署 | A.Z's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">A.Z's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/ISPZ" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://ISPZ.github.io/2019/11/18/Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="A.Z">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="A.Z's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo安装及Github部署
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-18 21:19:09" itemprop="dateCreated datePublished" datetime="2019-11-18T21:19:09+08:00">2019-11-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-20 17:42:08" itemprop="dateModified" datetime="2019-11-20T17:42:08+08:00">2019-11-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
+                  </a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="预备工作"><a href="#预备工作" class="headerlink" title="预备工作"></a>预备工作</h1><h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><p>从<a href="https://git-scm.com/" target="_blank" rel="noopener">git官网</a>下载符合自己系统的版本</p><p>本文不再详细阐述Git的安装方法，可以按照<a href="https://www.runoob.com/git/git-install-setup.html" target="_blank" rel="noopener">菜鸟教程</a>或者<a href="https://www.liaoxuefeng.com/wiki/896043488029600/896067074338496" target="_blank" rel="noopener">廖雪峰</a>的教程进行安装。</p><h2 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h2><p>从<a href="https://nodejs.org/en/" target="_blank" rel="noopener">官网</a>下载<br>选择下载长期支持版本</p><img src="/2019/11/18/Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2/nodejs.png" class title="spaced title"><p>下载安装完成后会安装两个工具，分别是node和npm。按下win+R输入powershell，验证下载是否成功</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure><a id="more"></a>
+
+
+
+
+
+<p>输出结果如下图所示：<br><img src="00_instal_cnpm.png" alt="install cnpm"></p>
+<h2 id="安装cnpm"><a href="#安装cnpm" class="headerlink" title="安装cnpm"></a>安装cnpm</h2><p>由于npm的下载速度缓慢，所以需要将安装国内镜像cnpm，仓库为<a href="https://npm.taobao.org/" target="_blank" rel="noopener">淘宝仓库</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<p>等待安装完成，输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm -v</span><br></pre></td></tr></table></figure>
+<p>检验安装是否成功</p>
+<h1 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h1><h2 id="hexo初始化"><a href="#hexo初始化" class="headerlink" title="hexo初始化"></a>hexo初始化</h2><p>在本地电脑中创建文件夹用来存储博客内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\00 DATA\08 HEXO blog\blog</span><br></pre></td></tr></table></figure>
+<p>在powershell中进入当前文件夹，输入代码安装hexo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>等待安装完成，安装完成后显示如下：<br><img src="01_install_hexo.png" alt></p>
+<p>输入 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+<p>检测hexo是否安装成功。<br><img src="02_validation_hexo.png" alt><br>如上图就代表安装成功</p>
+<h2 id="hexo初始化及本地预览"><a href="#hexo初始化及本地预览" class="headerlink" title="hexo初始化及本地预览"></a>hexo初始化及本地预览</h2><p>完成hexo安装后，需要实现hexo初始化，并生成样例博客。在blog的文件夹下输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<p>如果没有更改host，github下载速度较慢需要等待2分钟左右，若未报错则安装成功。安装成功后输入指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>可以在 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 进行预览。</p>
+<h2 id="hexo建立新博客"><a href="#hexo建立新博客" class="headerlink" title="hexo建立新博客"></a>hexo建立新博客</h2><p>在完成上述的初始化工作之后，可以建立自己的第一篇文章。输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n &quot;我的第一篇hexo博客&quot;</span><br></pre></td></tr></table></figure>
+<p>双引号中的内容为博客名字，其存储位置在</p>
+<blockquote>
+<p>.\source_posts</p>
+</blockquote>
+<p>查看博客的保存位置<br><img src="07_set_first_artical.png" alt><br>有生成的.md文件，对.md文件使用markdown进行编辑，保存（这里不再详细说明.md文件的编辑方法，可以用Typora工具、vim等），在blog文件夹下输入三条指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p><img src="08_generate_artical.png" alt><br>可以在 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 端口查看生成效果。</p>
+<h1 id="部署至GitHub"><a href="#部署至GitHub" class="headerlink" title="部署至GitHub"></a>部署至GitHub</h1><h2 id="建立Git仓库并安装Git插件"><a href="#建立Git仓库并安装Git插件" class="headerlink" title="建立Git仓库并安装Git插件"></a>建立Git仓库并安装Git插件</h2><p>在自己的github账户下建立一个repository输入名字，这里需要注意你的repository名字必须是 <strong>[账户名].github.io</strong><br>安装git插件，在power客户端下输入指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+<p>安装成功，提示如下：<br><img src="10_install_git_plugin.png" alt></p>
+<h2 id="设置配置文件"><a href="#设置配置文件" class="headerlink" title="设置配置文件"></a>设置配置文件</h2><p>部署到github远端需要修改hexo文件下的 _config.yml 文件，打开文件找到deploy位置<br><img src="10_git_set_position.png" alt><br>修改类型属性(type)，添加两个属性 *<em>repo和 branch *</em><br><img src="11_edit_repo.png" alt><br>其中repo属性对应git地址，branch对应分支选项。</p>
+<h2 id="远端部署"><a href="#远端部署" class="headerlink" title="远端部署"></a>远端部署</h2><p>修改_config.yml文件完成，需要将本地的博客部署到github上，使用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p><img src="12_remote_deploy_hexo.png" alt><br>等待….出现登录页，输入账号密码<br><img src="13_login.png" alt><br>部署完成<br><img src="14_complete.png" alt></p>
+<h1 id="主题美化"><a href="#主题美化" class="headerlink" title="主题美化"></a>主题美化</h1><h2 id="主题下载"><a href="#主题下载" class="headerlink" title="主题下载"></a>主题下载</h2><p>hexo自带的主题为landspace，主题样式可以更改，这里选择下载yilia主题。在blog文件夹下输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git colne https://github.com/litten/hexo-theme-yilia .\theme\yilia</span><br></pre></td></tr></table></figure>
+<p>其中 网址为下载地址，网址后的路径为主题的存储位置。下载完成如下：<br><img src="15_download_yilia_theme.png" alt><br>进入theme文件夹下，查看主题是否存储完成：<br><img src="16_theme_location.png" alt></p>
+<h2 id="更改主题"><a href="#更改主题" class="headerlink" title="更改主题"></a>更改主题</h2><p>下载完成后需要修改blog文件夹下的_config.yml文件，打开找到 <strong>theme</strong>属性<br><img src="17_set_theme.png" alt></p>
+<p>若未更改过主题，则显示为<strong>theme:landspace</strong>, landspace为主题名称，将其修改为 <strong>theme:yilia</strong>，在窗口输入三行指令在本地查看修改情况：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>若未出错，可以将其推向github，输入指令 ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<h1 id="遇到的错误"><a href="#遇到的错误" class="headerlink" title="遇到的错误"></a>遇到的错误</h1><p>在hexo初始化时遇到一些小错误，输入初始化指令** hexo init**，出现错误结果如下：<br><img src="04_hexo_init_error.png" alt></p>
+<p>按照错误提示输入*<em>npm install *</em> 仍报错<br><img src="05_input_npm_install_still_error.png" alt></p>
+<p>考虑到可能是连不上服务器所导致的，所以选择输入指令<strong>cnpm install</strong><br><img src="06_input_cnpm_install_solve_the_problem.png" alt><br>问题解决</p>
+
+    </div>
+
+    
+    
+    
+
+
+  <div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:20px;">-------------本 文 结 束 <span style="color:#0F9D58"><i class="fa fa-leaf"></i></span> 感 谢 您 的 阅 读 -------------</div>
+    
+</div>
+  
+  </div>
+
+  <div>
+  
+    
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2019/11/18/Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2/">Hexo安装及Github部署</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 A.Z 的个人博客">A.Z</a></p>
+  <p><span>发布时间:</span>2019年11月18日 - 21:11</p>
+  <p><span>最后更新:</span>2019年11月20日 - 17:11</p>
+  <p><span>原始链接:</span><a href="/2019/11/18/Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2/" title="Hexo安装及Github部署">http://ispz.github.io/2019/11/18/Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://ispz.github.io/2019/11/18/Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+  
+  </div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+              <a href="/tags/Github/" rel="tag"><i class="fa fa-tag"></i> Github</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/11/17/Hexo%E5%8D%9A%E5%AE%A2%E7%BC%96%E5%86%99%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" rel="next" title="Hexo的安装使用及Github部署">
+                  <i class="fa fa-chevron-left"></i> Hexo的安装使用及Github部署
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#预备工作"><span class="nav-number">1.</span> <span class="nav-text">预备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装git"><span class="nav-number">1.1.</span> <span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装node-js"><span class="nav-number">1.2.</span> <span class="nav-text">安装node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装cnpm"><span class="nav-number">1.3.</span> <span class="nav-text">安装cnpm</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Hexo"><span class="nav-number">2.</span> <span class="nav-text">安装Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo初始化"><span class="nav-number">2.1.</span> <span class="nav-text">hexo初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo初始化及本地预览"><span class="nav-number">2.2.</span> <span class="nav-text">hexo初始化及本地预览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo建立新博客"><span class="nav-number">2.3.</span> <span class="nav-text">hexo建立新博客</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署至GitHub"><span class="nav-number">3.</span> <span class="nav-text">部署至GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#建立Git仓库并安装Git插件"><span class="nav-number">3.1.</span> <span class="nav-text">建立Git仓库并安装Git插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置配置文件"><span class="nav-number">3.2.</span> <span class="nav-text">设置配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远端部署"><span class="nav-number">3.3.</span> <span class="nav-text">远端部署</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主题美化"><span class="nav-number">4.</span> <span class="nav-text">主题美化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#主题下载"><span class="nav-number">4.1.</span> <span class="nav-text">主题下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更改主题"><span class="nav-number">4.2.</span> <span class="nav-text">更改主题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#遇到的错误"><span class="nav-number">5.</span> <span class="nav-text">遇到的错误</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="A.Z"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">A.Z</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ISPZ" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ISPZ" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/mailto:mns_pz@163.com" title="E-Mail → mailto:mns_pz@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">A.Z</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">2k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">2 mins.</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'cb15b1c1fc6f9d260680',
+      clientSecret: '8296433af76d83ab3dae11fbd32644f605083537',
+      repo: 'ispz.github.io',
+      owner: 'ispz',
+      admin: [''],
+      id: 'c439f6a39e9807b3b25da3da66dd021e',
+        language: 'zh-CN',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+</body>
+</html>
