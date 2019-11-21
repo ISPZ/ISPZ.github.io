@@ -72,7 +72,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;04_hexo_init_error.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;05_input_npm_install_still_error.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;06_input_cnpm_install_solve_the_problem.png">
-<meta property="og:updated_time" content="2019-11-21T08:20:05.544Z">
+<meta property="og:updated_time" content="2019-11-21T08:25:16.083Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;ispz.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2&#x2F;nodejs.png">
 
@@ -231,7 +231,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-21 16:20:05" itemprop="dateModified" datetime="2019-11-21T16:20:05+08:00">2019-11-21</time>
+                <time title="Modified: 2019-11-21 16:25:16" itemprop="dateModified" datetime="2019-11-21T16:25:16+08:00">2019-11-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -304,7 +304,7 @@
 <p>查看博客的保存位置<br><img src="07_set_first_artical.png" alt><br>有生成的.md文件，对.md文件使用markdown进行编辑，保存（这里不再详细说明.md文件的编辑方法，可以用Typora工具、vim等），在blog文件夹下输入三条指令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 <p><img src="08_generate_artical.png" alt><br>可以在 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 端口查看生成效果。</p>
-<h1 id="部署至GitHub"><a href="#部署至GitHub" class="headerlink" title="部署至GitHub"></a>部署至<a href="https://github.com/" target="_blank" rel="noopener">GitHub<i class="fa fa-github"></i></a></h1><h2 id="建立Git仓库并安装Git插件"><a href="#建立Git仓库并安装Git插件" class="headerlink" title="建立Git仓库并安装Git插件"></a>建立Git仓库并安装Git插件</h2><p>在自己的github账户下建立一个repository输入名字，这里需要注意你的repository名字必须是 <strong>[账户名].github.io</strong><br>安装git插件，在power客户端下输入指令：</p>
+<h1 id="部署至GitHub"><a href="#部署至GitHub" class="headerlink" title="部署至GitHub"></a>部署至<a href="https://github.com/" target="_blank" rel="noopener">GitHub<i class="fab  fa-github"></i></a></h1><h2 id="建立Git仓库并安装Git插件"><a href="#建立Git仓库并安装Git插件" class="headerlink" title="建立Git仓库并安装Git插件"></a>建立Git仓库并安装Git插件</h2><p>在自己的github账户下建立一个repository输入名字，这里需要注意你的repository名字必须是 <strong>[账户名].github.io</strong><br>安装git插件，在power客户端下输入指令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
 <p>安装成功，提示如下：<br><img src="10_install_git_plugin.png" alt></p>
 <h2 id="设置配置文件"><a href="#设置配置文件" class="headerlink" title="设置配置文件"></a>设置配置文件</h2><p>部署到github远端需要修改hexo文件下的 _config.yml 文件，打开文件找到deploy位置<br><img src="10_git_set_position.png" alt><br>修改类型属性(type)，添加两个属性 *<em>repo和 branch *</em><br><img src="11_edit_repo.png" alt><br>其中repo属性对应git地址，branch对应分支选项。</p>
@@ -321,7 +321,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
 <h1 id="遇到的错误"><a href="#遇到的错误" class="headerlink" title="遇到的错误"></a>遇到的错误</h1><p>在hexo初始化时遇到一些小错误，输入初始化指令<strong>hexo init</strong>，出现错误结果如下：<br><img src="04_hexo_init_error.png" alt></p>
-<p>按照错误提示输入*<em>npm install *</em>仍报错<br><img src="05_input_npm_install_still_error.png" alt></p>
+<p>按照错误提示输入 <strong>npm install</strong> 仍报错<br><img src="05_input_npm_install_still_error.png" alt></p>
 <p>考虑到可能是连不上服务器所导致的，所以选择输入指令<strong>cnpm install</strong><br><img src="06_input_cnpm_install_solve_the_problem.png" alt><br>问题解决</p>
 
     </div>
