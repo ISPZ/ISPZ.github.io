@@ -23,7 +23,7 @@
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/an-old-hope.min.css" />
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github.min.css" />
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -141,7 +141,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    987 字
+                    1k 字
                   </span>
                 
 
@@ -151,7 +151,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    11
+                    12
                      分钟
                   </span>
                 
@@ -196,38 +196,38 @@
 选择下载长期支持版本</p>
 <img src="/2019/11/18/Hexo%E5%AE%89%E8%A3%85%E5%8F%8AGithub%E9%83%A8%E7%BD%B2/nodejs.png" srcset="/img/loading.gif" class="" title="spaced title">
 <p>下载安装完成后会安装两个工具，分别是node和npm。按下win+R输入powershell，验证下载是否成功</p>
-<div class="hljs"><pre><code class="hljs plain">node -v
-npm -v</code></pre></div>
+<pre><code class="hljs plain">node -v
+npm -v</code></pre>
 <p>输出结果如下图所示：<br>
 <img src="00_instal_cnpm.png" srcset="/img/loading.gif" alt="install cnpm"></p>
 <h2 id="安装cnpm"><a class="header-anchor" href="#安装cnpm">¶</a>安装cnpm</h2>
 <p>由于npm的下载速度缓慢，所以需要将安装国内镜像cnpm，仓库为<a href="https://npm.taobao.org/" target="_blank" rel="noopener">淘宝仓库<i class="fab fa-npm"></i></a></p>
-<div class="hljs"><pre><code class="hljs plain">npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org</code></pre></div>
+<pre><code class="hljs plain">npm install -g cnpm --registry=https://registry.npm.taobao.org</code></pre>
 <p>等待安装完成，输入</p>
-<div class="hljs"><pre><code class="hljs plain">cnpm -v</code></pre></div>
+<pre><code class="hljs plain">cnpm -v</code></pre>
 <p>检验安装是否成功</p>
 <h1>安装Hexo</h1>
 <h2 id="hexo初始化"><a class="header-anchor" href="#hexo初始化">¶</a>hexo初始化</h2>
 <p>在本地电脑中创建文件夹用来存储博客内容</p>
-<div class="hljs"><pre><code class="hljs plain">D:\00 DATA\08 HEXO blog\blog</code></pre></div>
+<pre><code class="hljs plain">D:\00 DATA\08 HEXO blog\blog</code></pre>
 <p>在powershell中进入当前文件夹，输入代码安装hexo</p>
-<div class="hljs"><pre><code class="hljs plain">cnpm install -g hexo-cli</code></pre></div>
+<pre><code class="hljs plain">cnpm install -g hexo-cli</code></pre>
 <p>等待安装完成，安装完成后显示如下：<br>
 <img src="01_install_hexo.png" srcset="/img/loading.gif" alt=""></p>
 <p>输入</p>
-<div class="hljs"><pre><code class="hljs plain">hexo -v</code></pre></div>
+<pre><code class="hljs plain">hexo -v</code></pre>
 <p>检测hexo是否安装成功。<br>
 <img src="02_validation_hexo.png" srcset="/img/loading.gif" alt=""><br>
 如上图就代表安装成功</p>
 <h2 id="hexo初始化及本地预览"><a class="header-anchor" href="#hexo初始化及本地预览">¶</a>hexo初始化及本地预览</h2>
 <p>完成hexo安装后，需要实现hexo初始化，并生成样例博客。在blog的文件夹下输入</p>
-<div class="hljs"><pre><code class="hljs plain">hexo init</code></pre></div>
+<pre><code class="hljs plain">hexo init</code></pre>
 <p>如果没有更改host，github下载速度较慢需要等待2分钟左右，若未报错则安装成功。安装成功后输入指令</p>
-<div class="hljs"><pre><code class="hljs plain">hexo s</code></pre></div>
+<pre><code class="hljs plain">hexo s</code></pre>
 <p>可以在 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 进行预览。</p>
 <h2 id="hexo建立新博客"><a class="header-anchor" href="#hexo建立新博客">¶</a>hexo建立新博客</h2>
 <p>在完成上述的初始化工作之后，可以建立自己的第一篇文章。输入命令：</p>
-<div class="hljs"><pre><code class="hljs plain">hexo n &quot;我的第一篇hexo博客&quot;</code></pre></div>
+<pre><code class="hljs plain">hexo n "我的第一篇hexo博客"</code></pre>
 <p>双引号中的内容为博客名字，其存储位置在</p>
 <blockquote>
 <p>.\source_posts</p>
@@ -235,16 +235,16 @@ npm -v</code></pre></div>
 <p>查看博客的保存位置<br>
 <img src="07_set_first_artical.png" srcset="/img/loading.gif" alt=""><br>
 有生成的.md文件，对.md文件使用markdown进行编辑，保存（这里不再详细说明.md文件的编辑方法，可以用Typora工具、vim等），在blog文件夹下输入三条指令</p>
-<div class="hljs"><pre><code class="hljs plain">hexo clean
+<pre><code class="hljs plain">hexo clean
 hexo g
-hexo s</code></pre></div>
+hexo s</code></pre>
 <p><img src="08_generate_artical.png" srcset="/img/loading.gif" alt=""><br>
 可以在 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 端口查看生成效果。</p>
 <h1>部署至<a href="https://github.com/" target="_blank" rel="noopener">GitHub<i class="fab  fa-github"></i></a></h1>
 <h2 id="建立git仓库并安装git插件"><a class="header-anchor" href="#建立git仓库并安装git插件">¶</a>建立Git仓库并安装Git插件</h2>
 <p>在自己的github账户下建立一个repository输入名字，这里需要注意你的repository名字必须是 <strong>[账户名].github.io</strong><br>
 安装git插件，在power客户端下输入指令：</p>
-<div class="hljs"><pre><code class="hljs plain">cnpm install --save hexo-deployer-git</code></pre></div>
+<pre><code class="hljs plain">cnpm install --save hexo-deployer-git</code></pre>
 <p>安装成功，提示如下：<br>
 <img src="09_install_git_plugin.png" srcset="/img/loading.gif" alt=""></p>
 <h2 id="设置配置文件"><a class="header-anchor" href="#设置配置文件">¶</a>设置配置文件</h2>
@@ -255,7 +255,7 @@ hexo s</code></pre></div>
 其中repo属性对应git地址，branch对应分支选项。</p>
 <h2 id="远端部署"><a class="header-anchor" href="#远端部署">¶</a>远端部署</h2>
 <p>修改_config.yml文件完成，需要将本地的博客部署到github上，使用命令</p>
-<div class="hljs"><pre><code class="hljs plain">hexo d</code></pre></div>
+<pre><code class="hljs plain">hexo d</code></pre>
 <p><img src="12_remote_deploy_hexo.png" srcset="/img/loading.gif" alt=""><br>
 等待…出现登录页，输入账号密码<br>
 <img src="13_login.png" srcset="/img/loading.gif" alt=""><br>
@@ -264,7 +264,7 @@ hexo s</code></pre></div>
 <h1>主题美化</h1>
 <h2 id="主题下载"><a class="header-anchor" href="#主题下载">¶</a>主题下载</h2>
 <p>hexo自带的主题为landspace，主题样式可以更改，这里选择下载yilia主题。在blog文件夹下输入命令：</p>
-<div class="hljs"><pre><code class="hljs plain">git colne https:&#x2F;&#x2F;github.com&#x2F;litten&#x2F;hexo-theme-yilia .\theme\yilia</code></pre></div>
+<pre><code class="hljs plain">git colne https://github.com/litten/hexo-theme-yilia .\theme\yilia</code></pre>
 <p>其中 网址为下载地址，网址后的路径为主题的存储位置。下载完成如下：<br>
 <img src="15_download_yilia_theme.png" srcset="/img/loading.gif" alt=""><br>
 进入theme文件夹下，查看主题是否存储完成：<br>
@@ -273,11 +273,11 @@ hexo s</code></pre></div>
 <p>下载完成后需要修改blog文件夹下的_config.yml文件，打开找到 <strong>theme</strong>属性<br>
 <img src="17_set_theme.png" srcset="/img/loading.gif" alt=""></p>
 <p>若未更改过主题，则显示为<strong>theme:landspace</strong>, landspace为主题名称，将其修改为 <strong>theme:yilia</strong>，在窗口输入三行指令在本地查看修改情况：</p>
-<div class="hljs"><pre><code class="hljs plain">hexo clean
+<pre><code class="hljs plain">hexo clean
 hexo g
-hexo s</code></pre></div>
+hexo s</code></pre>
 <p>若未出错，可以将其推向github，输入指令 ：</p>
-<div class="hljs"><pre><code class="hljs plain">hexo d</code></pre></div>
+<pre><code class="hljs plain">hexo d</code></pre>
 <h1>遇到的错误</h1>
 <p>在hexo初始化时遇到一些小错误，输入初始化指令<strong>hexo init</strong>，出现错误结果如下：<br>
 <img src="04_hexo_init_error.png" srcset="/img/loading.gif" alt=""></p>
@@ -286,7 +286,25 @@ hexo s</code></pre></div>
 <p>考虑到可能是连不上服务器所导致的，所以选择输入指令<strong>cnpm install</strong><br>
 <img src="06_input_cnpm_install_solve_the_problem.png" srcset="/img/loading.gif" alt=""><br>
 问题解决</p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </article>
             <hr>
             <div>

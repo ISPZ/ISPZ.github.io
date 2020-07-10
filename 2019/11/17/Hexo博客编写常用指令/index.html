@@ -23,7 +23,7 @@
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/an-old-hope.min.css" />
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github.min.css" />
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -141,7 +141,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    343 字
+                    391 字
                   </span>
                 
 
@@ -151,7 +151,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    3
+                    4
                      分钟
                   </span>
                 
@@ -193,34 +193,52 @@
 <ol>
 <li>找到hexo下的 _config.yml 文件，本机的存储位置</li>
 </ol>
-<div class="hljs"><pre><code class="hljs plain">D:\00 DATA\08 HEXO blog\blog\ _config.yml</code></pre></div>
+<pre><code class="hljs plain">D:\00 DATA\08 HEXO blog\blog\ _config.yml</code></pre>
 <ol start="2">
 <li>找到 post_asset_folder 属性，将其改为 true</li>
 </ol>
-<div class="hljs"><pre><code class="hljs plain">post_asset_folder: true</code></pre></div>
+<pre><code class="hljs plain">post_asset_folder: true</code></pre>
 <ol start="3">
 <li>使用指令</li>
 </ol>
-<div class="hljs"><pre><code class="hljs plain">hexo n &quot;博客文章的名字&quot;</code></pre></div>
+<pre><code class="hljs plain">hexo n "博客文章的名字"</code></pre>
 <p>新建一个博客，在路径</p>
-<div class="hljs"><pre><code class="hljs plain">\source\_posts</code></pre></div>
+<pre><code class="hljs plain">\source\_posts</code></pre>
 <p>下生成两个文件，分别为.md文件和其同名文件夹，将需要放在文章中的图片拷贝在同名文件夹中</p>
 <ol start="4">
 <li>在.md文件中使用以下代码添加图片</li>
 </ol>
-<div class="hljs"><pre><code class="hljs markdown">![<span class="hljs-string">图片描述</span>](<span class="hljs-link">图片名称</span>)</code></pre></div>
+<pre><code class="hljs markdown">![<span class="hljs-string">图片描述</span>](<span class="hljs-link">图片名称</span>)</code></pre>
 <p>上述的图片名称 可以直接写出图片的名称及类型，在文章中就可以正常显示。</p>
 <h2 id="官方加载"><a class="header-anchor" href="#官方加载">¶</a>官方加载</h2>
 <p>markdown语法加载图像的方式，在博客首页无法正常显示。所以这里给出另一种加载图像的方式，来解决上述问题。<br>
 <a href="https://hexo.io/zh-cn/docs/asset-folders" target="_blank" rel="noopener">官网文档</a>给出的标签插件方法加载图片，仍按照上述1~3步骤来配置，第4部在编写.md文件时，插入图像语法修改为：</p>
-<div class="hljs"><pre><code class="hljs plain">&#123;% asset_img 图像名.图像类型 图像名称 %&#125;</code></pre></div>
+<pre><code class="hljs plain">{% asset_img 图像名.图像类型 图像名称 %}</code></pre>
 <p>上述的加载方式在博客首页和文章内部都可以正常显示。</p>
 <h1>修改博客背景</h1>
 <p>修改文件 post.styl,存储位置</p>
 <blockquote>
 <p>D:\00 DATA\08 HEXO blog\blog\themes\next\source\css_common\components\post\post.styl</p>
 </blockquote>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </article>
             <hr>
             <div>
